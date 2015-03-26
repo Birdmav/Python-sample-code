@@ -1,0 +1,63 @@
+from Tkinter import *
+import math
+
+#GUI calculator written in Python by PJ Banerjee
+
+class Calculator():
+    def __init__(self):
+        window = Tk()
+        window.title("PyCalculator")
+        e = StringVar()
+        self.input = [0, 0]
+        self.first = 1
+        self.opCode = 0
+        self.entry = Entry(window, width=30, textvariable=e)
+        self.entry.grid(row=0, columnspan=30, sticky=W)
+        self.seven = Button(window, text="7", command=lambda i=7: self.numClick(i)).grid(row=1, column=1, sticky=W)
+        self.eigth = Button(window, text="8", command=lambda i=8: self.numClick(i)).grid(row=1, column=2, sticky=W)
+        self.nine = Button(window, text="9", command=lambda i=9: self.numClick(i)).grid(row=1, column=3, sticky=W)
+        self.four = Button(window, text="4", command=lambda i=4: self.numClick(i)).grid(row=2, column=1, sticky=W)
+        self.five = Button(window, text="5", command=lambda i=5: self.numClick(i)).grid(row=2, column=2, sticky=W)
+        self.six = Button(window, text="6", command=lambda i=6: self.numClick(i)).grid(row=2, column=3, sticky=W)
+        self.one = Button(window, text="1", command=lambda i=0: self.numClick(i)).grid(row=3, column=1, sticky=W)
+        self.zero = Button(window, text="0", command=lambda i=1: self.numClick(i)).grid(row=4, column=1, sticky=W)
+        self.two = Button(window, text="2", command=lambda i=2: self.numClick(i)).grid(row=3, column=2, sticky=W)
+        self.three = Button(window, text="3", command=lambda i=3: self.numClick(i)).grid(row=3, column=3, sticky=W)
+        self.div = Button(window, text="/", command=lambda i=0: self.opClick(i)).grid(row=1, column=16, sticky=W)
+        self.mult = Button(window, text="x", command=lambda i=1: self.opClick(i)).grid(row=1, column=17, sticky=W)
+        self.plus = Button(window, text="+", command=lambda i=2: self.opClick(i)).grid(row=2, column=16, sticky=W)
+        self.sub = Button(window, text="-", command=lambda i=3: self.opClick(i)).grid(row=2, column=17, sticky=W)
+        self.equal = Button(window, text="=", command=lambda i=4: self.equalClick(i)).grid(row=3, column=17, sticky=W)
+        self.dec = Button(window, text=".", command=lambda i=5: self.opClick(i)).grid(row=3, column=16, sticky=W)
+        self.sin = Button(window, text="sin", command=lambda i=6: self.opClick(i)).grid(row=1, column=15, sticky=W)
+        self.cos = Button(window, text="cos", command=lambda i=7: self.opClick(i)).grid(row=2, column=15, sticky=W)
+        self.tan = Button(window, text="tan", command=lambda i=8: self.opClick(i)).grid(row=3, column=15, sticky=W)
+        self.clear = Button(window, text="clr", command=lambda i=9: self.opClick(i)).grid(row=4, column=15, sticky=W)
+        window.mainloop()
+
+    def numClick(self, i):
+        self.entry.insert(END,str(i))
+
+    def equalClick(self,i):
+        self.input[1] = int(self.entry.get())
+        if opCode is 0:
+            ans = str(input[0]/input[1])
+            entry.insert(0, ans)
+        elif opCode is 1:
+            ans = str(input[0]*input[1])
+            entry.insert(0, ans)
+        elif opCode is 2:
+            ans = str(input[0]+input[1])
+            entry.insert(0, ans)
+        elif opCode is 3:
+            ans = str(input[0]-input[1])
+            entry.insert(0, ans)
+
+    def opClick(self, i):
+        self.first = self.entry.get()
+        self.entry.delete(0, END)
+        self.input[0] = int(first)
+        self.entry.delete(0, END)
+
+calc = Calculator()
+
